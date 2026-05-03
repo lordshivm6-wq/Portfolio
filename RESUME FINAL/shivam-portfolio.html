@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Shivam Saxena — Editorial Portfolio</title>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<style>
+  .creative-grid-43 {
+  display: grid !important;
+  /* 5 columns works best for 4:5 to keep them readable */
+  grid-template-columns: repeat(5, 1fr) !important; 
+  gap: 12px !important; 
+  padding: 40px !important;
+  width: 100% !important;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.c-item-43 {
+  width: 100% !important;
+  /* This is the 4:5 Portrait Ratio (4 units wide, 5 units tall) */
+  aspect-ratio: 4 / 5 !important; 
+  height: auto !important; 
+  position: relative !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(0,0,0,0.05);
+  background: #f4f1ea;
+}
+
+.c-item-43 img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important; /* This ensures the tall box is filled */
+  transition: transform 0.4s ease;
+}
+  
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --cream:#F0EBE1;--paper:#E8E1D5;--ink:#111008;
+  --amber:#B87800;--amber-l:#D4920A;
+  --rule:#C8C0B0;--mid:#7A7060;--dim:#A89E8E;
+  --dark:#1A1710;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--cream);color:var(--ink);font-family:'DM Sans',sans-serif;cursor:none;overflow-x:hidden;}
+#cur{position:fixed;width:10px;height:10px;border-radius:50%;background:var(--ink);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:multiply;transition:width .3s,height .3s,border-radius .3s;}
+#cr{position:fixed;width:38px;height:38px;border:1px solid rgba(17,16,8,0.2);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);}
+body.h #cur{width:48px;height:48px;background:rgba(17,16,8,0.06);border-radius:50%;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;background:var(--cream);border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;padding:0 48px;height:56px;}
+.nl{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:16px;letter-spacing:.5px;color:var(--ink);}
+.nl em{color:var(--amber);font-style:italic;}
+.nm{display:flex;gap:32px;}
+.nm a{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--mid);text-decoration:none;transition:color .2s;}
+.nm a:hover{color:var(--ink);}
+.ncta{font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:9px 20px;border:1px solid var(--ink);color:var(--ink);text-decoration:none;transition:all .2s;cursor:none;}
+.ncta:hover{background:var(--ink);color:var(--cream);}
+
+/* HERO — full-bleed editorial */
+.hero{
+  min-height:100vh;padding-top:56px;
+  display:grid;grid-template-columns:1fr 1fr;
+  position:relative;overflow:hidden;
+}
+.hero-left {
+  background: linear-gradient(rgba(26, 23, 16, 0.8), rgba(26, 23, 16, 0.8)), 
+              url('Portfolio pic.png');
+  background-size: cover; /* Since you resized it to 9:16, 'cover' will now fit perfectly */
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: #1a1710;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 60px 56px;
+  position: relative;
+  overflow: hidden;
+}
+/* amber glow on dark side */
+.hero-left::before{content:'';position:absolute;bottom:0;right:0;width:300px;height:300px;background:radial-gradient(circle,rgba(184,120,0,0.15),transparent 70%);pointer-events:none;}
+.h-issue{font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--amber);margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+.h-issue::before{content:'';width:20px;height:1px;background:var(--amber);}
+.h-name{font-family:'Playfair Display',serif;font-weight:900;font-style:italic;font-size:clamp(52px,8vw,100px);line-height:.88;letter-spacing:-2px;color:var(--cream);margin-bottom:16px;}
+.h-title{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--amber);margin-bottom:40px;}
+.h-desc{font-size:13px;line-height:1.85;color:rgba(240,235,225,0.55);max-width:320px;border-left:2px solid var(--amber);padding-left:16px;}
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 56px;
+  position: relative; /* This stays */
+  z-index: 1;
+  overflow: hidden;
+  background-color: var(--paper); 
+}
+
+.hero-right::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Use %20 to handle the space in the filename */
+  background-image: url('shivam%202.png'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.45; 
+  z-index: -1; 
+  pointer-events: none;
+}
+.h-big-num{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(100px,18vw,220px);color:rgba(17,16,8,0.05);line-height:1;margin-bottom:24px;letter-spacing:-6px;}
+.h-cards{display:flex;flex-direction:column;gap:16px;width:100%;}
+.h-stat{border-top:1px solid var(--rule);padding-top:14px;}
+.h-sn{font-family:'Playfair Display',serif;font-size:44px;font-weight:700;color:var(--ink);line-height:1;}
+.h-sn sup{font-size:18px;color:var(--amber);}
+.h-sl{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--mid);margin-top:4px;}
+
+/* SECTION: VIDEOS */
+#videos{padding:100px 48px;background:var(--cream);}
+.s-header{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:64px;border-bottom:1px solid var(--rule);padding-bottom:28px;}
+.s-eyebrow{font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--amber);margin-bottom:12px;}
+.s-title{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(44px,6vw,80px);line-height:.88;letter-spacing:-2px;color:var(--ink);}
+.s-title em{font-style:italic;color:var(--amber);}
+.s-desc{font-size:13px;line-height:1.8;color:var(--mid);align-self:end;}
+
+/* Video table — editorial list style */
+.vtable{width:100%;}
+.vt-head{display:grid;grid-template-columns:40px 1fr 180px 100px 120px;gap:0;padding:10px 0;border-bottom:1px solid var(--ink);}
+.vth{font-size:8px;letter-spacing:4px;text-transform:uppercase;color:var(--mid);}
+.vt-row{
+  display:grid;grid-template-columns:40px 1fr 180px 100px 120px;
+  gap:0;padding:20px 0;border-bottom:1px solid var(--rule);
+  cursor:none;transition:background .2s;align-items:center;
+  position:relative;
+}
+.vt-row:hover{background:rgba(184,120,0,0.04);}
+.vt-num{font-family:'Playfair Display',serif;font-size:13px;color:var(--dim);}
+.vt-info{}
+.vt-name{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--ink);margin-bottom:3px;line-height:1.1;}
+.vt-sub{font-size:10px;letter-spacing:1px;color:var(--mid);}
+.vt-ratio{
+  display:inline-flex;align-items:center;justify-content:center;
+  border:1px solid var(--rule);padding:4px 10px;
+  font-size:9px;letter-spacing:2px;color:var(--mid);
+  /* visual ratio preview */
+}
+/* little ratio thumbnail */
+.ratio-box{display:inline-block;border:1px solid var(--rule);background:var(--paper);margin-right:8px;}
+.vt-dur{font-size:12px;letter-spacing:1px;color:var(--mid);}
+.vt-play{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--ink);
+  text-decoration:none;cursor:none;transition:color .2s;
+}
+.vt-row:hover .vt-play{color:var(--amber);}
+.vt-play-icon{width:28px;height:28px;border-radius:50%;border:1px solid currentColor;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s,border-color .2s;}
+.vt-row:hover .vt-play-icon{background:var(--amber);border-color:var(--amber);}
+.vt-play-icon svg{width:9px;fill:currentColor;}.vt-row:hover .vt-play-icon svg{fill:#fff;}
+
+/* category tag */
+.vt-cat{
+  display:inline-block;padding:3px 10px;
+  border:1px solid var(--rule);
+  font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--mid);
+  margin-top:5px;
+}
+
+/* DIVIDER EDITORIAL */
+.ed-divider{
+  padding:48px 48px;
+  background:var(--dark);color:var(--cream);
+  display:flex;align-items:center;justify-content:space-between;
+  overflow:hidden;position:relative;
+}
+.ed-divider::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--amber);}
+.ed-quote{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(24px,4vw,52px);font-weight:400;line-height:1.15;max-width:700px;color:var(--cream);}
+.ed-quote span{color:var(--amber);}
+.ed-attr{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:rgba(240,235,225,0.3);white-space:nowrap;}
+
+/* CREATIVES — editorial grid */
+#creatives{padding:100px 48px;background:var(--paper);}
+.c-grid{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  grid-auto-rows:auto;
+  gap:12px;
+}
+/* creative items — span different columns for editorial layout */
+.ci{position:relative;overflow:hidden;cursor:none;background:var(--cream);}
+.ci.span-4{grid-column:span 4;}
+.ci.span-5{grid-column:span 5;}
+.ci.span-6{grid-column:span 6;}
+.ci.span-7{grid-column:span 7;}
+.ci.span-3{grid-column:span 3;}
+.ci.span-8{grid-column:span 8;}
+.ci.ratio-sq{aspect-ratio:1/1;}
+.ci.ratio-pt{aspect-ratio:9/16;}
+.ci.ratio-ls{aspect-ratio:16/9;}
+.ci.ratio-st{aspect-ratio:4/3;}
+.ci.ratio-45{aspect-ratio:4/5;}
+.ci img,.ci video{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.16,1,.3,1);}
+.ci:hover img,.ci:hover video{transform:scale(1.04);}
+.ci-ph{width:100%;height:100%;background:var(--paper);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;border:1px solid var(--rule);}
+.ci-ph-icon{font-size:24px;opacity:.2;}
+.ci-ph-label{font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--dim);}
+.ci-ph-fmt{font-size:7px;letter-spacing:2px;color:var(--dim);opacity:.6;}
+.ci-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(17,16,8,0.88) 0%,transparent 55%);opacity:0;transition:opacity .35s;display:flex;flex-direction:column;justify-content:flex-end;padding:18px;}
+.ci:hover .ci-overlay{opacity:1;}
+.ci-ov-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--cream);margin-bottom:3px;}
+.ci-ov-meta{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--amber);}
+
+/* CONTACT */
+#contact{background:var(--cream);padding:100px 48px;display:grid;grid-template-columns:1fr 1fr;gap:80px;}
+.c-left{}
+.c-eyebrow{font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--amber);margin-bottom:16px;}
+.c-heading{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(48px,7vw,96px);line-height:.88;letter-spacing:-2px;color:var(--ink);margin-bottom:40px;}
+.c-heading em{font-style:italic;color:var(--amber);}
+.c-btn{display:inline-block;padding:14px 32px;background:var(--ink);color:var(--cream);font-size:11px;letter-spacing:3px;text-transform:uppercase;text-decoration:none;transition:all .25s;cursor:none;}
+.c-btn:hover{background:var(--amber);color:var(--ink);}
+.c-right{display:flex;flex-direction:column;justify-content:flex-end;}
+.c-items{display:flex;flex-direction:column;gap:2px;}
+.c-item{display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px solid var(--rule);text-decoration:none;cursor:none;transition:padding-left .2s;}
+.c-item:hover{padding-left:8px;}
+.c-iname{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--ink);transition:color .2s;}
+.c-item:hover .c-iname{color:var(--amber);}
+.c-iarr{color:var(--rule);font-size:20px;transition:color .2s,transform .2s;}.c-item:hover .c-iarr{color:var(--amber);transform:translateX(4px);}
+
+/* FOOTER */
+footer{background:var(--dark);padding:24px 48px;display:flex;justify-content:space-between;align-items:center;}
+footer p{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(240,235,225,0.3);}
+footer a{color:var(--amber);text-decoration:none;}
+
+/* LIGHTBOX */
+.lb{position:fixed;inset:0;z-index:5000;background:rgba(17,16,8,0.97);display:none;align-items:center;justify-content:center;padding:60px;}
+.lb.open{display:flex;}
+.lb-inner{position:relative;width:100%;max-width:1100px;}
+.lbclose{position:absolute;top:-44px;right:0;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--dim);cursor:none;background:none;border:none;transition:color .2s;}
+.lbclose:hover{color:var(--cream);}
+.lbvw{width:100%;aspect-ratio:16/9;background:#000;}
+.lbvw iframe,.lbvw video{width:100%;height:100%;border:none;}
+.lbcap{margin-top:14px;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--dim);}
+
+/* REVEAL */
+.r{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease;}
+.r.v{opacity:1;transform:translateY(0);}
+.r1{transition-delay:.08s;}.r2{transition-delay:.16s;}.r3{transition-delay:.24s;}.r4{transition-delay:.32s;}
+
+@media(max-width:900px){
+  .hero,.c-grid,#contact{grid-template-columns:1fr;}
+  .hero-left,.hero-right{padding:40px 24px;}
+  #videos,#creatives,#contact{padding:64px 24px;}
+  .s-header{grid-template-columns:1fr;}
+  .vt-head,.vt-row{grid-template-columns:30px 1fr 80px;}
+  .vt-head .vth:nth-child(n+4),.vt-row>*:nth-child(n+4){display:none;}
+  .ci.span-4,.ci.span-5,.ci.span-6,.ci.span-7,.ci.span-3,.ci.span-8{grid-column:span 12;}
+  nav{padding:0 24px;}
+  .nm{display:none;}
+  footer{flex-direction:column;gap:8px;}
+}
+</style>
+.creative-card {
+  transition: all 0.4s ease; /* Makes the glow/lift smooth */
+}
+
+.creative-card:hover {
+  transform: translateY(-8px); /* Lifts it up */
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.6); /* White outer glow */
+}
+</head>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
+<body>
+<div id="cur"></div><div id="cr"></div>
+<div class="lb" id="lb" onclick="closeLb(event)">
+  <div class="lb-inner">
+    <button class="lbclose" onclick="closeLb({force:true})">[Esc] — Close</button>
+    <div id="lbc"></div>
+    <div class="lbcap" id="lbcap"></div>
+  </div>
+</div>
+<nav>
+  <div class="nl">Shivam <em>Saxena</em></div>
+  <div class="nm">
+    <a href="#videos">Films</a>
+    <a href="#creatives">Creatives</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <!-- Updated Resume Link -->
+  <a href="CV.pdf" target="_blank" class="ncta">
+    Download CV
+  </a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="h-issue r">Visual Portfolio · 2026</div>
+    <div class="h-name r r1">Shivam<br>Saxena</div>
+    <div class="h-title r r2">Head of Visual Production</div>
+    <p class="h-desc r r3">9 years of craft across broadcast, brand, and expedition. Every frame made with intention.</p>
+  </div>
+  <div class="hero-right">
+    <div class="h-big-num r">SS</div>
+    <div class="h-cards r r1">
+      <div class="h-stat"><div class="h-sn">9<sup>+</sup></div><div class="h-sl">Years of Craft</div></div>
+      <div class="h-stat"><div class="h-sn">4</div><div class="h-sl">Studios</div></div>
+      <div class="h-stat"><div class="h-sn">Delhi<span style="color:var(--amber);font-size:14px;vertical-align:middle;"> ·</span></div><div class="h-sl">Based In India</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- VIDEOS -->
+<section id="videos">
+  <div class="s-header r">
+    <div>
+      <div class="s-eyebrow">Moving Image</div>
+      <div class="s-title">Film<br><em>Work</em></div>
+    </div>
+    <div class="s-desc">Brand films, expedition reels, broadcast cuts, and motion graphics — every format, every aspect ratio.</div>
+  </div>
+  <div class="vtable r r1">
+    <div class="vt-head">
+      <div class="vth">No.</div>
+      <div class="vth">Title</div>
+      <div class="vth">Format</div>
+      <div class="vth">Duration</div>
+      <div class="vth">Play</div>
+    </div>
+    <!-- rows -->
+    <div class="vt-row r" onclick="openVid('videos/Supercar.mp4','Apex Predator — The Supercar Edit')">
+      <div class="vt-num">00</div>
+      <div class="vt-info">
+        <div class="vt-name">Adrenaline Rush - Supercars</div>
+        <div class="vt-sub">Adventures Overland</div>
+        <span class="vt-cat">Velocity</span>
+      </div>
+      <div><div class="vt-ratio">16 : 9</div></div>
+      <div class="vt-dur">7:34</div>
+      <div>
+        <button class="vt-play" onclick="event.stopPropagation();openVid('videos/Supercar.mp4','Supercar Edit')" style="cursor:none;background:none;border:none;font-family:inherit;">
+          <div class="vt-play-icon"><svg viewBox="0 0 12 14"><polygon points="0,0 12,7 0,14"/></svg></div>
+        </button>
+      </div>
+    </div>
+    <div class="vt-row r r2" onclick="openVid('videos/Brand Video.mp4','Official Brand Story')">
+  <div class="vt-num">03</div>
+  <div class="vt-info"><div class="vt-name">The Vision of a Brand</div><div class="vt-sub">Adventures Overland ·</div><span class="vt-cat">Brand</span></div>
+  <div><div class="vt-ratio">16 : 9</div></div>
+  <div class="vt-dur">3:17</div>
+  <div><button class="vt-play" onclick="event.stopPropagation();openVid('videos/Brand Video.mp4','Brand Story')" style="cursor:none;background:none;border:none;font-family:inherit;"><div class="vt-play-icon"><svg viewBox="0 0 12 14"><polygon points="0,0 12,7 0,14"/></svg></div></button></div>
+</div>
+<div class="vt-row r" onclick="openVid('videos/PVR Ad for AO.mp4','The Big Screen — PVR Cinema Feature')">
+      <div class="vt-num">16</div>
+      <div class="vt-info">
+        <div class="vt-name">The Big Screen PVR</div>
+        <div class="vt-sub">PVR Cinema Ad · Adventures Overland</div>
+        <span class="vt-cat">Theatrical</span>
+      </div>
+      <div><div class="vt-ratio">16 : 9</div></div>
+      <div class="vt-dur">0:10</div>
+      <div>
+        <button class="vt-play" onclick="event.stopPropagation();openVid('videos/PVR Ad for AO.mp4','PVR Ad')">
+          <div class="vt-play-icon"><svg viewBox="0 0 12 14"><polygon points="0,0 12,7 0,14"/></svg></div>
+        </button>
+      </div>
+    </div>
+    <div class="vt-row r r3" onclick="openVid('videos/Testimoninal.mp4','Client Testimonial — Adventures Overland')">
+      <div class="vt-num">11</div>
+      <div class="vt-info"><div class="vt-name">The People & their Love</div><div class="vt-sub">Adventures Overland ·</div><span class="vt-cat">Corporate · Feedback</span></div>
+      <div><div class="vt-ratio">16 : 9</div></div>
+      <div class="vt-dur">1:53</div>
+      <div><button class="vt-play" onclick="event.stopPropagation();openVid('videos/Testimoninal.mp4','Testimonial')" style="cursor:none;background:none;border:none;font-family:inherit;"><div class="vt-play-icon"><svg viewBox="0 0 12 14"><polygon points="0,0 12,7 0,14"/></svg></div></button></div>
+    </div>
+    <div class="vt-row r r1" onclick="openVid('videos/Web Banner.mp4','Digital Persona — Website Motion Header')">
+      <div class="vt-num">17</div>
+      <div class="vt-info">
+        <div class="vt-name">Digital Persona</div>
+        <div class="vt-sub">Web Banner · Adventures Overland</div>
+        <span class="vt-cat">UI / UX</span>
+      </div>
+      <div><div class="vt-ratio">16 : 9</div></div>
+      <div class="vt-dur">0:40</div>
+      <div>
+        <button class="vt-play" onclick="event.stopPropagation();openVid('videos/Web Banner.mp4','Web Banner')">
+          <div class="vt-play-icon"><svg viewBox="0 0 12 14"><polygon points="0,0 12,7 0,14"/></svg></div>
+        </button>
+      </div>
+    </div>
+    <div class="vt-row r r3" onclick="openVid('videos/Celebrity.mp4','Star Power — Studio Feature')">
+      <div class="vt-num">15</div>
+      <div class="vt-info"><div class="vt-name">Star Power</div><div class="vt-sub">High-End Talent Coordination</div><span class="vt-cat">Elite</span></div>
+      <div><div class="vt-ratio">9 : 16</div></div>
+      <div class="vt-dur">0:54</div>
+      <div><button class="vt-play" onclick="event.stopPropagation();openVid('videos/Celebrity.mp4','Star Power')"><div class="vt-play-icon"><svg viewBox="0 0 12 14"><polygon points="0,0 12,7 0,14"/></svg></div></button></div>
+    </div>
+    <div class="vt-row r r2" onclick="openVid('videos/Supercar 3.mp4','Supercar Drive — Edition III')">
+      <div class="vt-num">10</div>
+      <div class="vt-info"><div class="vt-name">Beasts in The Alps</div><div class="vt-sub">Adventures Overland ·</div><span class="vt-cat">Automotive · Cinematic</span></div>
+      <div><div class="vt-ratio">16 : 9</div></div>
+      <div class="vt-dur">1:01</div>
+      <div><button class="vt-play" onclick="event.stopPropagation();openVid('videos/Supercar 3.mp4','Supercar Drive III')" style="cursor:none;background:none;border:none;font-family:inherit;"><div class="vt-play-icon"><svg viewBox="0 0 12 14"><polygon points="0,0 12,7 0,14"/></svg></div></button></div>
+    </div>
+    <div class="vt-row r r1" onclick="openVid('videos/Supercar 2.mp4','Supercar Drive — Edition II')">
+      <div class="vt-num">09</div>
+      <div class="vt-info"><div class="vt-name">Cars, Strangers & Fun</div><div class="vt-sub">Adventures Overland ·</div><span class="vt-cat">Automotive · Cinematic</span></div>
+      <div><div class="vt-ratio">16 : 9</div></div>
+      <div class="vt-dur">5:32</div>
+      <div><button class="vt-play" onclick="event.stopPropagation();openVid('videos/Supercar 2.mp4','Supercar Drive II')" style="cursor:none;background:none;border:none;font-family:inherit;"><div class="vt-play-icon"><svg viewBox="0 0 12 14"><polygon points="0,0 12,7 0,14"/></svg></div></button></div>
+    </div>
+    <div class="vt-row r" onclick="openVid('videos/Lhasa.mp4','Himalayan Horizon — Expedition Reel')">
+      <div class="vt-num">01</div>
+      <div class="vt-info"><div class="vt-name">Himalayan Horizon</div><div class="vt-sub">Adventures Overland</div><span class="vt-cat">Expedition</span></div>
+      <div><div class="vt-ratio">16 : 9</div></div>
+      <div class="vt-dur">0:32</div>
+      <div><button class="vt-play" onclick="event.stopPropagation();openVid('videos/Lhasa.mp4','Himalayan Horizon')" style="cursor:none;background:none;border:none;font-family:inherit;"><div class="vt-play-icon"><svg viewBox="0 0 12 14"><polygon points="0,0 12,7 0,14"/></svg></div></button></div>
+    </div>
+    <div class="vt-row r r1" onclick="openVid('videos/Bhutan.mp4','Bhutan — Vertical Reel')">
+      <div class="vt-num">02</div>
+      <div class="vt-info"><div class="vt-name">Hidden Kingdom - Bhutan</div><div class="vt-sub">Adventures Overland</div><span class="vt-cat">Vertical · Reel</span></div>
+      <div><div class="vt-ratio">9 : 16</div></div>
+      <div class="vt-dur">1:19</div>
+      <div><button class="vt-play" onclick="event.stopPropagation();openVid('videos/Bhutan.mp4','Bhutan')" style="cursor:none;background:none;border:none;font-family:inherit;"><div class="vt-play-icon"><svg viewBox="0 0 12 14"><polygon points="0,0 12,7 0,14"/></svg></div></button></div>
+    </div>
+    <div class="vt-row r" onclick="openVid('videos/Supercuts.mp4','The Supercut — Visual Anthology')">
+      <div class="vt-num">12</div>
+      <div class="vt-info"><div class="vt-name">The Supercut</div><div class="vt-sub">Rapid-Fire Motion Design</div><span class="vt-cat">High Energy</span></div>
+      <div><div class="vt-ratio">9 : 16</div></div>
+      <div class="vt-dur">1:21</div>
+      <div><button class="vt-play" onclick="event.stopPropagation();openVid('videos/Supuercuts.mp4','The Supercut')"><div class="vt-play-icon"><svg viewBox="0 0 12 14"><polygon points="0,0 12,7 0,14"/></svg></div></button></div>
+    </div>
+    <div class="vt-row r r2" onclick="openVid('videos/cambodia.mp4','Cambodia — Vertical Reel')">
+      <div class="vt-num">03</div>
+      <div class="vt-info"><div class="vt-name">Ancient Echoes - Cambodia</div><div class="vt-sub">Adventures Overland</div><span class="vt-cat">Vertical · Reel</span></div>
+      <div><div class="vt-ratio">9 : 16</div></div>
+      <div class="vt-dur">1:03</div>
+      <div><button class="vt-play" onclick="event.stopPropagation();openVid('videos/cambodia.mp4','Cambodia')" style="cursor:none;background:none;border:none;font-family:inherit;"><div class="vt-play-icon"><svg viewBox="0 0 12 14"><polygon points="0,0 12,7 0,14"/></svg></div></button></div>
+    </div>
+<div class="vt-row r r1" onclick="openVid('videos/Quick Explainer Video.mp4','TL;DR — The Process')">
+      <div class="vt-num">13</div>
+      <div class="vt-info"><div class="vt-name">TL;DR Visuals</div><div class="vt-sub">Quick Breakdown · Studio Talk</div><span class="vt-cat">Behind Scenes</span></div>
+      <div><div class="vt-ratio">9 : 16</div></div>
+      <div class="vt-dur">0:49</div>
+      <div><button class="vt-play" onclick="event.stopPropagation();openVid('videos/Quick Explainer Video.mp4','Quick Explainer')"><div class="vt-play-icon"><svg viewBox="0 0 12 14"><polygon points="0,0 12,7 0,14"/></svg></div></button></div>
+    </div>
+    <div class="vt-row r r3" onclick="openVid('videos/japan.mp4','Japan — Vertical Reel')">
+      <div class="vt-num">04</div>
+      <div class="vt-info"><div class="vt-name">The Amber Japan</div><div class="vt-sub">Adventures Overland</div><span class="vt-cat">Vertical · Reel</span></div>
+      <div><div class="vt-ratio">9 : 16</div></div>
+      <div class="vt-dur">1:14</div>
+      <div><button class="vt-play" onclick="event.stopPropagation();openVid('videos/japan.mp4','Japan')" style="cursor:none;background:none;border:none;font-family:inherit;"><div class="vt-play-icon"><svg viewBox="0 0 12 14"><polygon points="0,0 12,7 0,14"/></svg></div></button></div>
+    </div>
+<div class="vt-row r r2" onclick="openVid('videos/Karan Kundra Iceland.mp4','Icelandic Dreams — Karan Kundra')">
+      <div class="vt-num">14</div>
+      <div class="vt-info"><div class="vt-name">Icelandic Dreams with Karan Kundra</div><div class="vt-sub">Featuring Karan Kundra · Iceland</div><span class="vt-cat">Celebrity</span></div>
+      <div><div class="vt-ratio">9 : 16</div></div>
+      <div class="vt-dur">1:14</div>
+      <div><button class="vt-play" onclick="event.stopPropagation();openVid('videos/Karan Kundra Iceland.mp4','Icelandic Dreams')"><div class="vt-play-icon"><svg viewBox="0 0 12 14"><polygon points="0,0 12,7 0,14"/></svg></div></button></div>
+    </div>
+    <div class="vt-row r" onclick="openVid('videos/ladakh.mp4','Ladakh — Vertical Reel')">
+      <div class="vt-num">05</div>
+      <div class="vt-info"><div class="vt-name">Cold Desert - Ladakh</div><div class="vt-sub">Adventures Overland</div><span class="vt-cat">Vertical · Reel</span></div>
+      <div><div class="vt-ratio">9 : 16</div></div>
+      <div class="vt-dur">0:57</div>
+      <div><button class="vt-play" onclick="event.stopPropagation();openVid('videos/ladakh.mp4','Ladakh')" style="cursor:none;background:none;border:none;font-family:inherit;"><div class="vt-play-icon"><svg viewBox="0 0 12 14"><polygon points="0,0 12,7 0,14"/></svg></div></button></div>
+    </div>
+
+    <div class="vt-row r r1" onclick="openVid('videos/the grand alps.mp4','The Grand Alps — Vertical Reel')">
+      <div class="vt-num">06</div>
+      <div class="vt-info"><div class="vt-name">The Euro Supercar Drive</div><div class="vt-sub">Adventures Overland</div><span class="vt-cat">Vertical · Reel</span></div>
+      <div><div class="vt-ratio">9 : 16</div></div>
+      <div class="vt-dur">1:05</div>
+      <div><button class="vt-play" onclick="event.stopPropagation();openVid('videos/the grand alps.mp4','The Grand Alps')" style="cursor:none;background:none;border:none;font-family:inherit;"><div class="vt-play-icon"><svg viewBox="0 0 12 14"><polygon points="0,0 12,7 0,14"/></svg></div></button></div>
+    </div>
+    <div class="vt-row r r2" onclick="openVid('videos/spiti.mp4','Spiti Valley — Vertical Reel')">
+      <div class="vt-num">07</div>
+      <div class="vt-info"><div class="vt-name">Valley of Shadows - Spiti</div><div class="vt-sub">Adventures Overland</div><span class="vt-cat">Vertical · Reel</span></div>
+      <div><div class="vt-ratio">9 : 16</div></div>
+      <div class="vt-dur">1:16</div>
+      <div><button class="vt-play" onclick="event.stopPropagation();openVid('videos/spiti.mp4','Spiti')" style="cursor:none;background:none;border:none;font-family:inherit;"><div class="vt-play-icon"><svg viewBox="0 0 12 14"><polygon points="0,0 12,7 0,14"/></svg></div></button></div>
+    </div>
+
+    <div class="vt-row r r3" onclick="openVid('videos/supecar spain.mp4','Supercar Spain — Vertical Reel')">
+      <div class="vt-num">08</div>
+      <div class="vt-info"><div class="vt-name">Hola! Full Throttle</div><div class="vt-sub">Adventures Overland</div><span class="vt-cat">Vertical · Reel</span></div>
+      <div><div class="vt-ratio">9 : 16</div></div>
+      <div class="vt-dur">0:56</div>
+      <div><button class="vt-play" onclick="event.stopPropagation();openVid('videos/supecar spain.mp4','Supercar Spain')" style="cursor:none;background:none;border:none;font-family:inherit;"><div class="vt-play-icon"><svg viewBox="0 0 12 14"><polygon points="0,0 12,7 0,14"/></svg></div></button></div>
+    </div>
+</section>
+
+<!-- EDITORIAL DIVIDER -->
+<div class="ed-divider r">
+  <div class="ed-quote">"Every cut is intentional.<br><span>Every frame earns its place.</span>"</div>
+  <div class="ed-attr">Shivam Saxena · Delhi</div>
+</div>
+
+<!-- CREATIVES -->
+<section id="creatives">
+  <div class="s-header r">
+    <div>
+      <div class="s-eyebrow">Still & Motion Design</div>
+      <div class="s-title">Creative<br><em>Work</em></div>
+    </div>
+    <div class="s-desc">Posters, thumbnails, brand visuals, and social assets — across every format and dimension.</div>
+  </div>
+  <!--
+    HOW TO ADD IMAGES:
+    Replace <div class="ci-ph">...</div> with:
+    <img src="your-image.jpg" alt="title">
+    or for video loops:
+    <video autoplay muted loop playsinline src="clip.mp4"></video>
+  -->
+<div class="creative-grid-43">
+  <!-- MONGOLIA & TRIPS -->
+   <div class="c-item-43" onclick="openImg('images/Grandalps.jpg', 'Alps')"><img src="images/Grandalps.jpg"><div class="c-label">Grand Alps</div></div>
+     <div class="c-item-43" onclick="openImg('images/Japan.jpg', 'Japan')"><img src="images/Japan.jpg"><div class="c-label">Japan</div></div>
+     <div class="c-item-43" onclick="openImg('images/Humour poster.jpg', 'Humour')"><img src="images/Humour poster.jpg"><div class="c-label">Humour</div></div>
+  <div class="c-item-43" onclick="openImg('images/Humour poster 2.jpg', 'Humour II')"><img src="images/Humour poster 2.jpg"><div class="c-label">Humour II</div></div>
+  <div class="c-item-43" onclick="openImg('images/Mongolia.jpg', 'Mongolia')"><img src="images/Mongolia.jpg"><div class="c-label">Mongolia</div></div>
+    <div class="c-item-43" onclick="openImg('images/RTE.jpg', 'RTE')"><img src="images/RTE.jpg"><div class="c-label">RTE</div></div>
+  <div class="c-item-43" onclick="openImg('images/Uctrips.jpg', 'UC Trips')"><img src="images/Uctrips.jpg"><div class="c-label">UC Trips</div></div>
+  <!-- ROAD TO EUROPE -->
+  <div class="c-item-43" onclick="openImg('images/RTE 2.jpg', 'RTE II')"><img src="images/RTE 2.jpg"><div class="c-label">RTE II</div></div>
+
+  <!-- HUMOUR & CAMPAIGNS -->
+  <div class="c-item-43" onclick="openImg('images/Lastcall.jpg', 'Last Call')"><img src="images/Lastcall.jpg"><div class="c-label">Last Call</div></div>
+    <div class="c-item-43" onclick="openImg('images/Mongolia 2.jpg', 'Mongolia II')"><img src="images/Mongolia 2.jpg"><div class="c-label">Mongolia II</div></div>
+  <div class="c-item-43" onclick="openImg('images/B&P.jpg', 'B&P')"><img src="images/B&P.jpg"><div class="c-label">B&P</div></div>
+  <div class="c-item-43" onclick="openImg('images/G&A.jpg', 'G&A')"><img src="images/G&A.jpg"><div class="c-label">G&A</div></div>
+    <div class="c-item-43" onclick="openImg('images/Uctrips2.jpg', 'UC Trips II')"><img src="images/Uctrips2.jpg"><div class="c-label">UC Trips II</div></div>
+  <div class="c-item-43" onclick="openImg('images/C&S.jpg', 'C&S')"><img src="images/C&S.jpg"><div class="c-label">C&S</div></div>
+
+  <!-- THE CAROUSEL SERIES -->
+  <div class="c-item-43" onclick="openImg('images/Carousel.jpg', 'Carousel Main')"><img src="images/Carousel.jpg"><div class="c-label">Carousel</div></div>
+  <div class="c-item-43" onclick="openImg('images/Carousel 1.jpg', 'Carousel 1')"><img src="images/Carousel 1.jpg"><div class="c-label">Slide 1</div></div>
+  <div class="c-item-43" onclick="openImg('images/Carousel 2.jpg', 'Carousel 2')"><img src="images/Carousel 2.jpg"><div class="c-label">Slide 2</div></div>
+  <div class="c-item-43" onclick="openImg('images/Carousel 3.jpg', 'Carousel 3')"><img src="images/Carousel 3.jpg"><div class="c-label">Slide 3</div></div>
+  <div class="c-item-43" onclick="openImg('images/Carousel 4.jpg', 'Carousel 4')"><img src="images/Carousel 4.jpg"><div class="c-label">Slide 4</div></div>
+  <div class="c-item-43" onclick="openImg('images/Carousel 5.jpg', 'Carousel 5')"><img src="images/Carousel 5.jpg"><div class="c-label">Slide 5</div></div>
+  <div class="c-item-43" onclick="openImg('images/Carousel 6.jpg', 'Carousel 6')"><img src="images/Carousel 6.jpg"><div class="c-label">Slide 6</div></div>
+  <div class="c-item-43" onclick="openImg('images/Carousel 7.jpg', 'Carousel 7')"><img src="images/Carousel 7.jpg"><div class="c-label">Slide 7</div></div>
+  <div class="c-item-43" onclick="openImg('images/Carousel 8.jpg', 'Carousel 8')"><img src="images/Carousel 8.jpg"><div class="c-label">Slide 8</div></div>
+  <div class="c-item-43" onclick="openImg('images/Carousel 9.jpg', 'Carousel 9')"><img src="images/Carousel 9.jpg"><div class="c-label">Slide 9</div></div>
+  <div class="c-item-43" onclick="openImg('images/Carousel 10.jpg', 'Carousel 10')"><img src="images/Carousel 10.jpg"><div class="c-label">Slide 10</div></div>
+
+  <!-- CAROUSEL 2 SERIES -->
+  <div class="c-item-43" onclick="openImg('images/Carousel 2. 1.jpg', 'C2-1')"><img src="images/Carousel 2. 1.jpg"><div class="c-label">Exp II-1</div></div>
+  <div class="c-item-43" onclick="openImg('images/Carousel 2. 2.jpg', 'C2-2')"><img src="images/Carousel 2. 2.jpg"><div class="c-label">Exp II-2</div></div>
+  <div class="c-item-43" onclick="openImg('images/Carousel 2. 3.jpg', 'C2-3')"><img src="images/Carousel 2. 3.jpg"><div class="c-label">Exp II-3</div></div>
+  <div class="c-item-43" onclick="openImg('images/Carousel 2. 4.jpg', 'C2-4')"><img src="images/Carousel 2. 4.jpg"><div class="c-label">Exp II-4</div></div>
+  <div class="c-item-43" onclick="openImg('images/Carousel 2. 5.jpg', 'C2-5')"><img src="images/Carousel 2. 5.jpg"><div class="c-label">Exp II-5</div></div>
+  <div class="c-item-43" onclick="openImg('images/Carousel 2. 6.jpg', 'C2-6')"><img src="images/Carousel 2. 6.jpg"><div class="c-label">Exp II-6</div></div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="c-left r">
+    <div class="c-eyebrow">Let's Work Together</div>
+    <div class="c-heading">Make<br>Some<br><em>thing.</em></div>
+    <a class="c-btn" href="mailto:shivamsaxena8588@gmail.com">Send a Message →</a>
+  </div>
+  <div class="c-right r r2">
+    <div class="c-items">
+      <!-- Email Link -->
+      <a class="c-item" href="mailto:shivamsaxena8588@gmail.com" style="cursor:none;">
+        <span class="c-iname">Email</span>
+        <span class="c-iarr">→</span>
+      </a>
+      <!-- LinkedIn Link (Add your profile URL in href) -->
+      <a class="c-item" href="https://www.linkedin.com/in/shivam-saxena-84b720186/" target="_blank" style="cursor:none;">
+        <span class="c-iname">LinkedIn</span>
+        <span class="c-iarr">→</span>
+      </a>
+      <!-- PDF Resume Link -->
+      <a class="c-item" href="CV.pdf" target="_blank" style="cursor:none;">
+        <span class="c-iname">Resume (PDF)</span>
+        <span class="c-iarr">→</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Shivam Saxena</p>
+  <p>Head of Visual Production · Delhi, India</p>
+  <p><a href="mailto:shivamsaxena8588@gmail.com">shivamsaxena8588@gmail.com</a></p>
+</footer>
+
+<script>
+const cur=document.getElementById('cur'),cr=document.getElementById('cr');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+(function lp(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;cr.style.left=rx+'px';cr.style.top=ry+'px';requestAnimationFrame(lp);})();
+document.querySelectorAll('.vt-row,.ci,.c-item,.ncta').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('h'));el.addEventListener('mouseleave',()=>document.body.classList.remove('h'));});
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('v');}),{threshold:.08});
+document.querySelectorAll('.r').forEach(el=>obs.observe(el));
+window.addEventListener('load',()=>{document.querySelectorAll('.hero .r').forEach((el,i)=>setTimeout(()=>el.classList.add('v'),200+i*130));});
+const lb=document.getElementById('lb');
+function openVid(src, title){
+  const lbc = document.getElementById('lbc');
+  // This detects if you are using an MP4 file
+  if(src.toLowerCase().endsWith('.mp4')) {
+    lbc.innerHTML = `<div class="lbvw"><video src="${src}" controls autoplay style="width:100%;height:100%;object-fit:contain;background:#000;"></video></div>`;
+  } else {
+    lbc.innerHTML = `<div class="lbvw"><iframe src="${src}" allowfullscreen allow="autoplay"></iframe></div>`;
+  }
+  document.getElementById('lbcap').textContent = title;
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}<!-- VIDEOS -->
+function openImg(src,title){
+  const c=document.getElementById('lbc');
+  c.innerHTML=src?`<img src="${src}" style="max-width:100%;max-height:80vh;display:block;margin:auto;">`:
+    `<div style="min-height:280px;background:#111;display:flex;align-items:center;justify-content:center;"><p style="font-family:'DM Sans',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:#7A7060;">Add image src in onclick</p></div>`;
+  document.getElementById('lbcap').textContent=title;
+  lb.classList.add('open');document.body.style.overflow='hidden';
+}
+function closeLb(e){if(e.force||e.target===lb){lb.classList.remove('open');document.getElementById('lbc').innerHTML='';document.body.style.overflow='';}}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLb({force:true});});
+</script>
+</body>
+</html>
